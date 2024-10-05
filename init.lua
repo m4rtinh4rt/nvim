@@ -70,6 +70,16 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Disable line numbering in the terminal
+local function disable_line_numbers()
+  vim.opt_local.number = false
+  vim.opt_local.relativenumber = false
+end
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  callback = disable_line_numbers,
+})
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
