@@ -79,6 +79,11 @@ vim.api.nvim_create_autocmd('TermOpen', {
   pattern = '*',
   callback = disable_line_numbers,
 })
+-- Disable spell in terminal mode
+vim.api.nvim_create_autocmd('TermOpen', {
+  pattern = '*',
+  command = 'setlocal nospell',
+})
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
