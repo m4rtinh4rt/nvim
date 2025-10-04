@@ -9,6 +9,9 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+-- Disable default .bash_profile and .bashrc
+vim.o.shell = '/bin/bash --noprofile --norc'
+
 -- Disable mouse mode
 vim.opt.mouse = ''
 
